@@ -1,8 +1,68 @@
 import React, { useRef, useEffect, useState } from 'react';
-import heroBg from '../assets/hero-bg.jpg';
 import trekkerImg from '../assets/trekker.png';
 import { NumberTicker } from './magicui/number-ticker';
 import './Hero.css';
+
+const HERO_BACKGROUNDS = [
+    {
+        src: 'https://montaxe.com/wp-content/uploads/2024/04/Sikkim-Tourism.webp',
+        alt: 'Sikkim mountain landscape'
+    },
+    {
+        src: 'https://www.remotelands.com/travelogues/app/uploads/2019/12/Sikkim-India-1.jpg',
+        alt: 'Sikkim valley and mountain view'
+    },
+    {
+        src: 'https://northbengaltourism.com/images/offbeat/tingchim_1.webp',
+        alt: 'Tingchim mountain scenery, Sikkim'
+    },
+    {
+        src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Gurudongmar.Lake.jpg/3840px-Gurudongmar.Lake.jpg',
+        alt: 'Gurudongmar Lake, Sikkim mountains'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1612866001494-8273f33e5cd3?auto=format&fit=crop&w=1920&q=80',
+        alt: 'Kerala mountain landscape'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80',
+        alt: 'Snow mountain peaks'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1920&q=80',
+        alt: 'Misty mountain valley'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?auto=format&fit=crop&w=1920&q=80',
+        alt: 'Cloudy mountain range'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1920&q=80',
+        alt: 'Himalayan sunrise view'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1431794062232-2a99a5431c6c?auto=format&fit=crop&w=1920&q=80',
+        alt: 'Green mountain landscape'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1426604966848-d7adac402bff?auto=format&fit=crop&w=1920&q=80',
+        alt: 'Mountain and river scene'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1920&q=80',
+        alt: 'Mountain wilderness'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1463694775559-eea25626346b?auto=format&fit=crop&w=1920&q=80',
+        alt: 'High altitude mountain pass'
+    },
+    {
+        src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80',
+        alt: 'Mountain ridge under dramatic sky'
+    }
+];
+
+const HERO_BG_INTERVAL_MS = 100;
 
 const Hero = () => {
     const textRef = useRef(null);
@@ -10,6 +70,17 @@ const Hero = () => {
     const sectionRef = useRef(null);
     const [linePath, setLinePath] = useState('');
     const [svgBox, setSvgBox] = useState({ left: 0, top: 0, width: 0, height: 0 });
+    const [activeBackgroundIndex, setActiveBackgroundIndex] = useState(0);
+
+    useEffect(() => {
+        if (HERO_BACKGROUNDS.length <= 1) return undefined;
+
+        const intervalId = window.setInterval(() => {
+            setActiveBackgroundIndex((prev) => (prev + 1) % HERO_BACKGROUNDS.length);
+        }, HERO_BG_INTERVAL_MS);
+
+        return () => window.clearInterval(intervalId);
+    }, []);
 
     useEffect(() => {
         const drawLine = () => {
@@ -55,11 +126,15 @@ const Hero = () => {
     return (
         <section className="hero">
             <div className="hero-background">
-                <img
-                    src={heroBg}
-                    alt="Himalayan Mountains"
-                    className="hero-image"
-                />
+                {HERO_BACKGROUNDS.map((background, index) => (
+                    <img
+                        key={background.src}
+                        src={background.src}
+                        alt={background.alt}
+                        className={`hero-image ${index === activeBackgroundIndex ? 'is-active' : ''}`}
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                    />
+                ))}
                 <div className="hero-overlay"></div>
             </div>
 
@@ -121,7 +196,7 @@ const Hero = () => {
                             <div className="search-field">
                                 <span className="search-label">Location</span>
                                 <div className="search-input">
-                                    <span className="icon">📍</span>
+                                    <span className="icon">{'\u{1F4CD}'}</span>
                                     <input type="text" placeholder="Sikkim, India" />
                                 </div>
                             </div>
@@ -129,7 +204,7 @@ const Hero = () => {
                             <div className="search-field">
                                 <span className="search-label">Date</span>
                                 <div className="search-input">
-                                    <span className="icon">📅</span>
+                                    <span className="icon">{'\u{1F4C5}'}</span>
                                     <input type="text" placeholder="Select Date" />
                                 </div>
                             </div>
@@ -137,7 +212,7 @@ const Hero = () => {
                             <div className="search-field">
                                 <span className="search-label">Guests</span>
                                 <div className="search-input">
-                                    <span className="icon">👥</span>
+                                    <span className="icon">{'\u{1F465}'}</span>
                                     <select>
                                         <option>2 People</option>
                                         <option>3 People</option>
