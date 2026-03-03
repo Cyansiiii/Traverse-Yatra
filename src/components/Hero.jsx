@@ -5,15 +5,15 @@ import './Hero.css';
 
 const HERO_BACKGROUNDS = [
     {
-        src: 'https://montaxe.com/wp-content/uploads/2024/04/Sikkim-Tourism.webp',
+        src: 'https://images.unsplash.com/photo-1585914285280-72bae40d4b3a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         alt: 'Sikkim mountain landscape'
     },
     {
-        src: 'https://www.remotelands.com/travelogues/app/uploads/2019/12/Sikkim-India-1.jpg',
+        src: 'https://images.unsplash.com/photo-1663597675816-9b5d68952f42?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         alt: 'Sikkim valley and mountain view'
     },
     {
-        src: 'https://northbengaltourism.com/images/offbeat/tingchim_1.webp',
+        src: 'https://images.unsplash.com/photo-1591354565616-16e9337d2d61?q=80&w=2159&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         alt: 'Tingchim mountain scenery, Sikkim'
     },
     {
@@ -21,7 +21,7 @@ const HERO_BACKGROUNDS = [
         alt: 'Gurudongmar Lake, Sikkim mountains'
     },
     {
-        src: 'https://images.unsplash.com/photo-1612866001494-8273f33e5cd3?auto=format&fit=crop&w=1920&q=80',
+        src: 'https://images.unsplash.com/photo-1637066868012-12099599b278?q=80&w=2135&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         alt: 'Kerala mountain landscape'
     },
     {
@@ -57,12 +57,12 @@ const HERO_BACKGROUNDS = [
         alt: 'High altitude mountain pass'
     },
     {
-        src: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80',
+        src: 'https://images.unsplash.com/photo-1624725412168-a8e69d4f7b36?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
         alt: 'Mountain ridge under dramatic sky'
     }
 ];
 
-const HERO_BG_INTERVAL_MS = 100;
+const HERO_BG_INTERVAL_MS = 5000;
 
 const Hero = () => {
     const textRef = useRef(null);

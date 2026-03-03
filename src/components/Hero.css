@@ -25,7 +25,8 @@
     object-fit: cover;
     object-position: center bottom;
     opacity: 0;
-    transition: opacity 0.1s ease-in-out;
+    transition: opacity 1.5s ease-in-out;
+    background-color: var(--dark);
 }
 
 .hero-image.is-active {
