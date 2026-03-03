@@ -1,0 +1,126 @@
+.tours-section {
+    padding: 5rem 5%;
+    background-color: var(--bg);
+}
+
+.tours-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.tours-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.tours-header h2 {
+    font-size: 3.5rem;
+    color: var(--dark);
+    margin-bottom: 1rem;
+}
+
+.tours-header p {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.tour-card {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.tour-img-wrapper {
+    position: relative;
+    height: 250px;
+}
+
+.tour-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tour-duration {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: rgba(26, 26, 26, 0.8);
+    color: var(--text-light);
+    padding: 0.4rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    backdrop-filter: blur(5px);
+}
+
+.tour-info {
+    padding: 1.5rem;
+}
+
+.tour-loc {
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.tour-info h3 {
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+}
+
+.tour-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.tour-price .price-val {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.tour-price .price-unit {
+    font-size: 0.8rem;
+    color: #666;
+    margin-left: 0.2rem;
+}
+
+.book-btn {
+    background-color: var(--dark);
+    color: var(--text-light);
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.book-btn:hover {
+    background-color: #333;
+}
+
+@media (max-width: 1024px) {
+    .tours-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tours-grid {
+        grid-template-columns: 1fr;
+    }
+}
